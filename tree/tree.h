@@ -1,4 +1,3 @@
-
 typedef struct _tree_node 
 {
 	int val;

@@ -5,6 +5,8 @@
 #include "tree.h"
 
 
+
+//Depth-first printing. Values should be printed in ascending order
 void print_tree( tree_node *n )
 {
 	if( n->left )
@@ -16,66 +18,44 @@ void print_tree( tree_node *n )
 
 void insert( tree_node **root, int value )
 {
+	//Malloc the node initialize it
 	tree_node *n = malloc( sizeof( tree_node ) );
 	n->val = value;
 	n->left = NULL;
 	n->right = NULL;
 
-	tree_node *c = *root;
-#if 1
+	tree_node *c;
 
-	//while( *root != NULL )
+	// Generally I don't like using attributions in conditional statements like this
+	//  ...but I'm doing it anyway
 	while( c = *root  )
 	{
 		if( value <= c->val )
 		{
-			printf("Left\n");
 			root = &(c->left);
 		}
 		else
 		{
-			printf("Right\n");
 			root = &(c->right);
 		}
 	}
-	printf("k\n");
-	*root = n;
-
-#else
-	while( c != NULL  )
-	{
-		if( value <= c->val )
-		{
-			printf("Left\n");
-			root = &(c->left);
-		}
-		else
-		{
-			printf("Right\n");
-			root = &(c->right);
-		}
-		c = *root;
-	}
 
 	*root = n;
-#endif
 }
 
 int main( void )
 {
-	tree_node *root = NULL;
 	int i;
-//	insert( &root, 5 );
-//	insert( &root, 2 );
+	tree_node *root = NULL;
+
 	for( i = 0; i < 10; i++ )
 	{
 		int r = rand()%100;
-		printf("%d\n", r);
 		insert( &root, r );
 	}
+
 	print_tree( root );
 
-	printf("DONE!\n");
 	return 0;
 }
 
