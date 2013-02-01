@@ -1,10 +1,7 @@
 //A simple binary search tree
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "tree.h"
-
-
 
 //Depth-first printing. Values should be printed in ascending order
 void print_tree( tree_node *n )
