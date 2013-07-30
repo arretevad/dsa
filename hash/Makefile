@@ -1,10 +1,17 @@
-
-
 CC=gcc
 CFLAGS=
+CXX=g++
+INC=
 
-sqrt: sqrt.c
-	$(CC) -o $@ $< -lm
-	./sqrt
+all: run
 
-all: sqrt
+hashpp: hash.cpp
+	g++ -o hashpp hash.cpp
+
+run: hashpp
+	./hashpp
+
+
+clean:
+	/bin/rm -rf hash hashpp
+
