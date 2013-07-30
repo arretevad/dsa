@@ -1,10 +1,19 @@
-
-
 CC=gcc
 CFLAGS=
+CPPFLAGS= -Wall
+CXX=g++
+INC=
 
-tree: tree.c tree.h
-	$(CC) -o $@ $<
-	./tree
 
-all: tree
+all: run
+
+main: main.cpp bst.hpp
+	g++ $(CPPFLAGS) -o main main.cpp
+
+run: main
+	./main
+
+clean:
+	/bin/rm -rf main
+
+
